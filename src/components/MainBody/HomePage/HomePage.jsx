@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../images/MainLogo.png";
 import uploadLogo from "../../../images/upload.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import heroIMG from "../../../images/heroImg.jpg";
+
 import Footer from "../Footer/Footer";
 
 const HomePage = () => {
+  const location = useLocation();
   return (
     <>
       {/* Navigation bar Starts */}
@@ -47,19 +49,19 @@ const HomePage = () => {
           style={{ backgroundImage: `url(${heroIMG})` }}
           className="absolute inset-0 bg-cover bg-no-repeat bg-center blur-[3px] z-0"
         ></div>
-        {/* Text content */}
-        <div className="relative z-10 pt-28 text-black">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-          impedit magnam harum nesciunt inventore adipisci temporibus porro
-          autem incidunt animi sit, ipsam iste rerum esse aut ex aliquid
-          blanditiis quibusdam? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Itaque impedit magnam harum nesciunt inventore
-          adipisci temporibus porro autem incidunt animi sit, ipsam iste rerum
-          esse aut ex aliquid blanditiis quibusdam?
+        <div className="relative z-10 pt-28 text-black container mx-auto">
+          {location.pathname == "/questions" ? (
+            ""
+          ) : (
+            <Link to="/questions">
+              <button className="btn btn-secondary">Questions</button>
+            </Link>
+          )}
+          <Outlet></Outlet>
         </div>
       </div>
       {/* Hero Container END */}
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
       {/* Hero Container END */}
     </>
   );
