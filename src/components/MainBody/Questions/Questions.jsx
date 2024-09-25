@@ -17,10 +17,9 @@ const Questions = () => {
             <option>EEE</option>
             <option>ME</option>
             <option>CE</option>
+            <option>AIS</option>
             <option>BBA</option>
             <option>English</option>
-            <option>JavaScript</option>
-            <option>Python</option>
           </select>
           {/* sec - 2 */}
           <select
@@ -44,14 +43,9 @@ const Questions = () => {
             <option disabled selected>
               Batch
             </option>
-            <option>Java</option>
-            <option>Go</option>
-            <option>C</option>
-            <option>C#</option>
-            <option>C++</option>
-            <option>Rust</option>
-            <option>JavaScript</option>
-            <option>Python</option>
+            {Array.from({ length: 20 }, (_, i) => (
+              <option key={i}>Batch-{i + 1}</option>
+            ))}
           </select>
           {/* sec - 4 */}
           <select className="select select-secondary bg-gray-50 border-2 border-gray-300 text-gray-700 py-2 px-8 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 transition ease-in-out duration-300 hover:shadow-lg active:bg-purple-100 active:border-purple-800 active:text-purple-800 active:shadow-2xl active:scale-105 transform">
